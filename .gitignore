@@ -1,0 +1,17 @@
+# មិនឱ្យ Git តាមដាន Folder node_modules
+node_modules/
+
+# មិនឱ្យ Git តាមដានឯកសារសម្ងាត់
+.env
+.env.local
+
+# មិនឱ្យ Git តាមដាន Folder build
+dist/
+build/
+
+# មិនឱ្យ Git តាមដានឯកសារ Log
+*.log
+
+# មិនឱ្យ Git តាមដានឯកសាររបស់កម្មវិធីសរសេរកូដ
+.vscode/
+.idea/
