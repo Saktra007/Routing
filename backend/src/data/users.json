@@ -1,12 +1,17 @@
 [
   {
     "id": 1,
-    "name": "Jonh Doe",
+    "name": "Updated Name",
     "email": "jonh@example.com"
   },
   {
     "id": 2,
     "name": "Sara Connor",
     "email": "sara@example.com"
+  },
+  {
+    "id": "e23878e2-590c-45f7-b5b8-d5e624724e26",
+    "name": "New User",
+    "email": "new@example.com"
   }
 ]
