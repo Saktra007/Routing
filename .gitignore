@@ -1,17 +1,30 @@
-# មិនឱ្យ Git តាមដាន Folder node_modules
+# 1. Dependencies
 node_modules/
 
-# មិនឱ្យ Git តាមដានឯកសារសម្ងាត់
-.env
-.env.local
-
-# មិនឱ្យ Git តាមដាន Folder build
+# 2. TypeScript Build Output (សំខាន់សម្រាប់ TS)
+# ប្រសិនបើក្នុង tsconfig អ្នកកំណត់ "outDir": "./dist" ត្រូវដាក់ឈ្មោះតាមនោះ
 dist/
 build/
+out/
+*.tsbuildinfo
 
-# មិនឱ្យ Git តាមដានឯកសារ Log
+# 3. Testing & Coverage (ផ្អែកលើ "exclude": ["coverage"] របស់អ្នក)
+coverage/
+.nyc_output/
+
+# 4. Environment Variables (Security)
+.env
+.env.local
+.env.*.local
+
+# 5. Debug & Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
 *.log
 
-# មិនឱ្យ Git តាមដានឯកសាររបស់កម្មវិធីសរសេរកូដ
+# 6. OS & IDE Settings
+.DS_Store
 .vscode/
 .idea/
