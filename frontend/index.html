@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+    <div>
+      <header>
+        <h1>User Management</h1>
+        <div>
+          <button class="btn btn-export" onclick="exportExcel()">
+            Export to Excel
+          </button>
+          <button class="btn btn-add" onclick="toggleModal()">
+            Add New User
+          </button>
+        </div>
+      </header>
+    </div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+      </table>
+    </div>
+    <div class="modal" id="userModal">
+      <div class="modal-content">
+        <h2 id="modalTitle">Add New User</h2>
+        <form id="userForm">
+          <input type="hidden" id="userId" />
+          <div class="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              placeholder="Enter name..."
+              id="userName"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Email</label
+            ><input
+              type="email"
+              id="userEmail"
+              placeholder="Enter email..."
+              required
+            />
+          </div>
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="btn btn-cancel"
+              onclick="toggleModal()"
+            >
+              Cancel</button
+            ><button type="submit" class="btn btn-add">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

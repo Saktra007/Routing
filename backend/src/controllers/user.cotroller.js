@@ -99,7 +99,7 @@ export const updateUser = (req, res) => {
     //Check if email already used by another users
     if (email) {
       const emailExists = users.find(
-        (u) => u.email === email && u.id != userId
+        (u) => u.email === email && u.id != userId,
       );
       if (emailExists) {
         return res.status(400).json({
@@ -128,6 +128,44 @@ export const updateUser = (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to update user",
+    });
+  }
+};
+
+//DELETE user
+export const daleteUsr = (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    //Read existing users
+    let users = readJSON("users.json");
+
+    //Find user index
+    const index = users.findIndex((u) => u.id == userId);
+
+    if (index === -1) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    //Remove user from array
+    const deleteUser = users[index];
+    users.splice(index, 1);
+
+    //Save updated data
+    writeJSON("users.json", users);
+
+    res.json({
+      success: true,
+      message: "User deleted successfully",
+      data: deleteUser,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to delete users",
     });
   }
 };
