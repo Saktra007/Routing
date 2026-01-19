@@ -26,8 +26,7 @@ Routing/
 │   │   │   └── users.json
 │   │   ├── middleware/
 │   │   │   ├── logger.js
-│   │   │   ├── errorHandler.js
-│   │   │   └── asyncWrapper.js (optional)
+│   │   │   └── errorHandler.js
 │   │   └── utils/
 │   │       └── file.js
 │   ├── package.json
