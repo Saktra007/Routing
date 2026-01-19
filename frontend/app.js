@@ -6,6 +6,7 @@ const userModal = document.getElementById("userModal");
 // UI Logic: Toggle Modal visibility
 function toggleModal() {
   userModal.classList.toggle("active");
+
   //If modal is closing, reset form fields and set title back to default
   if (!userModal.classList.contains("active")) {
     userForm.reset();
@@ -43,6 +44,7 @@ async function fetchUsers() {
     console.error("Error fetching data:", error);
   }
 }
+
 // CRUD: Create (Post) or Update (PUT) a user
 userForm.addEventListener("submit", async (e) => {
   e.preventDefault(); //Prevent page refresh on form submit
@@ -69,10 +71,13 @@ userForm.addEventListener("submit", async (e) => {
         body: JSON.stringify(userData),
       });
     }
-    if (response.ok) {
-      fetchUsers();
-      toggleModal();
+    if (!response.ok) {
+      const err = await response.json();
+      alert(err.message);
+      return;
     }
+    fetchUsers();
+    toggleModal();
   } catch (error) {
     console.error("Error saving user:", error);
   }
@@ -86,9 +91,13 @@ async function deleteUser(id) {
       const response = await fetch(`${API_URL}/${id}`, {
         method: "DELETE",
       });
-      if (response.ok) {
-        fetchUsers();
+      if (!response.ok) {
+        const err = await response.json();
+        alert(err.message);
+        return;
       }
+      
+      fetchUsers();
     } catch (error) {
       console.error("Error deleting user:", error);
     }

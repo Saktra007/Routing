@@ -1,62 +1,86 @@
+/* ការកំណត់ទូទៅ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background: #f5f5f5;
-  padding: 20px;
+  background-color: #f4f7f6;
+  padding: 40px 20px;
+  color: #333;
 }
 
+/* Header Section */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  max-width: 1000px;
+  margin: 0 auto 30px auto;
 }
 
 h1 {
-  font-size: 26px;
-  font-weight: bold;
+  font-size: 28px;
+  color: #2c3e50;
 }
 
+/* Buttons Design */
 .btn {
-  padding: 8px 14px;
+  padding: 10px 18px;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
-  border-radius: 4px;
   font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn:active {
+  transform: scale(0.95);
 }
 
 .btn-add {
-  background: #4caf50;
+  background-color: #2ecc71;
   color: white;
 }
 
+.btn-add:hover {
+  background-color: #27ae60;
+}
+
 .btn-export {
-  background: #2196f3;
+  background-color: #3498db;
   color: white;
   margin-right: 10px;
 }
 
+.btn-export:hover {
+  background-color: #2980b9;
+}
+
 .btn-edit {
-  background: #ffc107;
-  color: black;
+  background-color: #f1c40f;
+  color: #333;
   margin-right: 5px;
 }
 
 .btn-delete {
-  background: #e53935;
+  background-color: #e74c3c;
   color: white;
 }
 
+/* Table Design */
 .table-container {
+  max-width: 1000px;
+  margin: 0 auto;
   background: white;
-  padding: 20px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* ដើម្បីឱ្យ border-radius ដើរលើ table */
 }
 
 table {
@@ -65,53 +89,94 @@ table {
 }
 
 table th {
+  background-color: #f8f9fa;
+  color: #7f8c8d;
   text-align: left;
-  background: #eee;
-  padding: 12px;
+  padding: 15px;
+  font-size: 13px;
+  border-bottom: 2px solid #edf2f7;
 }
 
 table td {
-  padding: 12px;
-  border-top: 1px solid #ddd;
+  padding: 15px;
+  border-bottom: 1px solid #edf2f7;
+  vertical-align: middle;
 }
 
-/* Modal */
+table tr:hover {
+  background-color: #fdfdfd;
+}
+
+/* Modal Styling */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  transition: opacity 0.3s ease;
 }
+
 .modal.active {
   display: flex;
 }
+
 .modal-content {
   background: white;
-  padding: 20px;
-  width: 350px;
-  border-radius: 6px;
+  padding: 30px;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-out;
 }
 
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #2c3e50;
+}
+
+/* Form Styling */
 .form-group {
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .form-group input {
   width: 100%;
-  padding: 8px;
-  margin-top: 4px;
+  padding: 12px;
+  border: 1px solid #dcdfe6;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #3498db;
 }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
+  margin-top: 25px;
 }
 
 .btn-cancel {
-  background: #757575;
+  background: #95a5a6;
   color: white;
   margin-right: 10px;
 }
