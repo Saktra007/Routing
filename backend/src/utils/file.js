@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Ease path ot /data folder
+// Ease path to /data folder
 const dataPath = path.join(__dirname, "..", "data");
 
 export function readJSON(filename) {

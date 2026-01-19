@@ -3,6 +3,8 @@ import cors from "cors";
 
 // import user routes
 import userRoutes from "./routes/user.routes.js";
+import logger from "./middleware/logger.js";
+import errorHandler from "./middleware/errorHandler.js";
 
 const app = express();
 const PORT = 3000;
@@ -11,12 +13,13 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
+app.use(logger);
+
 //Routes
 app.use("/api/users", userRoutes);
 
-app.get("/", (req, res) => {
-  res.send("Backend is running!");
-});
+//Error Middleware (Buttom - Last)
+app.use(errorHandler);
 
 //Start server
 app.listen(PORT, () => {
